@@ -373,8 +373,8 @@ namespace BSXScript_Tool
 
                 if (!string.IsNullOrEmpty(s))
                 {
-                    output.WriteLine($"◇A{charId:X7}◇{s}");
-                    output.WriteLine($"◆A{charId:X7}◆{s}");
+                    output.WriteLine($"◇A{charId:X7}|02◇{s}");
+                    output.WriteLine($"◆A{charId:X7}|02◆{s}");
                     output.WriteLine();
                 }
             }
@@ -385,8 +385,8 @@ namespace BSXScript_Tool
 
                 if (!string.IsNullOrEmpty(s))
                 {
-                    output.WriteLine($"◇B{mesgId:X7}◇{s}");
-                    output.WriteLine($"◆B{mesgId:X7}◆{s}");
+                    output.WriteLine($"◇B{mesgId:X7}|00◇{s}");
+                    output.WriteLine($"◆B{mesgId:X7}|00◆{s}");
                     output.WriteLine();
                 }
             }
@@ -432,6 +432,8 @@ namespace BSXScript_Tool
 
                     var strIndex = m.Groups[1].Value;
                     var strVal = m.Groups[2].Value;
+
+                    strIndex = strIndex.Replace("|02◆", "◆").Replace("|00◆", "◆");
 
                     switch (strIndex[0])
                     {
